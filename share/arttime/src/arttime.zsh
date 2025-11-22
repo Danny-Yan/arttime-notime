@@ -1481,7 +1481,7 @@ function printtime {
     if [[ ! $padwidth -gt 0 ]]; then
         padwidth=0
     fi
-    printf "\r%${shiftwidth}s\e[0m\e[38;5;${starttimecolor}m${timestring0style}$timestring0\e[0m\e[38;5;${subtitlecolor}m$timestring1\e[0m\e[38;5;${deltatimecolor}m$timestring2\e[0m\e[38;5;${subtitlecolor}m$timestring3\e[0m\e[38;5;${currenttimecolor}m${timestring4style}$timestring4\e[0m%${padwidth}s$tchar" " " " "
+    # printf "\r%${shiftwidth}s\e[0m\e[38;5;${starttimecolor}m${timestring0style}$timestring0\e[0m\e[38;5;${subtitlecolor}m$timestring1\e[0m\e[38;5;${deltatimecolor}m$timestring2\e[0m\e[38;5;${subtitlecolor}m$timestring3\e[0m\e[38;5;${currenttimecolor}m${timestring4style}$timestring4\e[0m%${padwidth}s$tchar" " " " "
     if [[  $goaltime != "" && $goaldone = "1" && $goalmaxsprint != "-" ]]; then
         percentdone="100.0"
         progressbar="$cacheprogressbar100"
@@ -2768,7 +2768,7 @@ function trapwinch {
                 termheight="$LINES"
                 modestrpos=$(echoti cup $termheight $((termwidth-1)))
                 setmodestr
-                printf "$tput_clear"; prevartname=""; setartstring; printart; lasttime=""; printtime "1"
+                printf "$tput_clear"; prevartname=""; setartstring; printart; printtime "1"
             fi
         fi
     else
@@ -2777,7 +2777,7 @@ function trapwinch {
             termheight="$LINES"
             modestrpos=$(echoti cup $termheight $((termwidth-1)))
             setmodestr
-            printf "$tput_clear"; prevartname=""; setartstring; printart; lasttime=""; printtime "1"
+            printf "$tput_clear"; prevartname=""; setartstring; printart; printtime "1"
         fi
     fi
     if [[ $winchdetected = "1" ]]; then
